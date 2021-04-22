@@ -37,6 +37,6 @@ class OrderControllerTest {
 
     private Order getOrder() {
         return new Order("Order123", "Żabikowska 12/23", "Luboń", "Poland", "62-030",
-                "73281731493", "14/2023", "123");
+                "73281731493", "14/23", "123");
     }
 }
