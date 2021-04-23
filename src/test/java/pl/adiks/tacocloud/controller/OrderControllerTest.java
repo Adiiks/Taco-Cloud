@@ -36,7 +36,15 @@ class OrderControllerTest {
     }
 
     private Order getOrder() {
-        return new Order("Order123", "Żabikowska 12/23", "Luboń", "Poland", "62-030",
-                "73281731493", "14/23", "123");
+        return Order.builder()
+                .name("Order123")
+                .state("Żabikowska 12/23")
+                .city("Luboń")
+                .state("Poland")
+                .zip("62-030")
+                .ccNumber("73281731493")
+                .ccExpiration("14/23")
+                .ccCVV("123")
+                .build();
     }
 }

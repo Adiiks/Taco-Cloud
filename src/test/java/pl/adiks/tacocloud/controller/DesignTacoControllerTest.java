@@ -38,6 +38,8 @@ class DesignTacoControllerTest {
     }
 
     private Taco getTaco() {
-        return new Taco("Tacos", Arrays.asList("cheese", "potato", "chili"));
+        return Taco.builder()
+                .name("Tacos")
+                .build();
     }
 }
