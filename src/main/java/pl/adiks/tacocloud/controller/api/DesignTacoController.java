@@ -2,10 +2,18 @@ package pl.adiks.tacocloud.controller.api;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.adiks.tacocloud.domain.Taco;
 import pl.adiks.tacocloud.repository.TacoRepository;
+import pl.adiks.tacocloud.utility.TacoResource;
+import pl.adiks.tacocloud.utility.TacoResourceAssembler;
+
+import java.util.List;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController("api")
 @RequestMapping(path = "/design", produces = "application/json")
@@ -19,10 +27,18 @@ public class DesignTacoController {
     }
 
     @GetMapping("/recent")
-    public Iterable<Taco> recentTacos() {
+    public CollectionModel<TacoResource> recentTacos() {
         PageRequest page = PageRequest.of(0, 12, Sort.by("createdAt").descending());
 
-        return tacoRepository.findAll(page).getContent();
+        List<Taco> tacos = tacoRepository.findAll(page).getContent();
+
+        CollectionModel<TacoResource> tacoResources = new TacoResourceAssembler().toCollectionModel(tacos);
+        tacoResources.add(
+                linkTo(methodOn(DesignTacoController.class).recentTacos())
+                .withRel("recents")
+        );
+
+        return tacoResources;
     }
 
     @PostMapping(consumes = "application/json")
