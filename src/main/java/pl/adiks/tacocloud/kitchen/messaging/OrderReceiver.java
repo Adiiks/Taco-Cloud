@@ -1,4 +1,4 @@
-package pl.adiks.tacocloud.kitchen.messaging.jms;
+package pl.adiks.tacocloud.kitchen.messaging;
 
 import pl.adiks.tacocloud.domain.Order;
 
