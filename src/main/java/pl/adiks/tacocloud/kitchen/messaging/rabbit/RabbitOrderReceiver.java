@@ -1,13 +1,12 @@
 package pl.adiks.tacocloud.kitchen.messaging.rabbit;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 import pl.adiks.tacocloud.domain.Order;
 
 @Component
 public class RabbitOrderReceiver {
 
-    private final RabbitTemplate rabbitTemplate;
+    /*private final RabbitTemplate rabbitTemplate;
 
     public RabbitOrderReceiver(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
@@ -15,5 +14,5 @@ public class RabbitOrderReceiver {
 
     public Order receiveOrder() {
         return (Order) rabbitTemplate.receiveAndConvert("tacocloud.order.queue");
-    }
+    } */
 }

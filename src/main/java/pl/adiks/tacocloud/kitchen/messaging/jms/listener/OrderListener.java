@@ -2,7 +2,7 @@ package pl.adiks.tacocloud.kitchen.messaging.jms.listener;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class OrderListener {
 
 

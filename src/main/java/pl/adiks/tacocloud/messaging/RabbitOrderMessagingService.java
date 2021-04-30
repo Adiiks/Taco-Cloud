@@ -1,12 +1,12 @@
 package pl.adiks.tacocloud.messaging;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import pl.adiks.tacocloud.domain.Order;
 
 @Service
-public class RabbitOrderMessagingService implements OrderMessagingService {
+public class RabbitOrderMessagingService {
 
+    /*
     private final RabbitTemplate rabbitTemplate;
 
     public RabbitOrderMessagingService(RabbitTemplate rabbitTemplate) {
@@ -17,4 +17,6 @@ public class RabbitOrderMessagingService implements OrderMessagingService {
     public void sendOrder(Order order) {
         rabbitTemplate.convertAndSend("tacocloud.order", order);
     }
+
+     */
 }
